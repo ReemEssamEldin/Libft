@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int ft_isalnum(int c)
 {
     //The condition can also be ft_isalpha(c) || ft_isdigit(c)
@@ -5,7 +7,5 @@ int ft_isalnum(int c)
     {
         return(1);
     }
-    else
     return(0);
-
 }

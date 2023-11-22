@@ -1,5 +1,4 @@
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 void *ft_memcpy(void *dst, const void *src, size_t n)
 {
@@ -19,21 +18,4 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
         i++;
     }
     return (temp_dst);
-}
-
-int main()
-{
-    char src[] = "HelloWorld!";
-    char dst[] = "12345";
-    memcpy(dst, src, 4);
-
-    printf("%s\n", dst);
-
-    char src1[] = "HelloWorld!";
-    char dst1[] = "12345";
-    ft_memcpy(dst1, src1, 4);
-
-    printf("My function: %s", dst1);
-
-    return (0);
 }
