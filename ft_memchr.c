@@ -1,24 +1,23 @@
-#include <stdio.h>
-#include <string.h>
-
-int main(void)
+#include "libft.h"
+void *ft_memchr(const void *str, char c, size_t size)
 {
-    char data[] = {'q', 'r', 's', 't', 'p', 'a', 'x'};
-    char *pos = memchr(data, 'a', 4);
-    if (pos == NULL)
-    {
-        printf("Character not found!\n");
-    }
-    else
-    {
-        printf("Pos[0] = %c\n", pos[0]);
-        printf("Pos[1] = %c\n", pos[1]);
-    }
+    size_t i;
+    unsigned char *temp_str;
+    unsigned char temp_c;
 
-    char str[] = "reem.essam.eldin@gmail.com";
-    char *domain = memchr(str, '@', strlen(str));
-    domain++;
-    printf("domain: %s\n", domain);
+    i = 0;
+    temp_str = (unsigned char *) str;
+    temp_c = (unsigned char) c;
+
     
-    return(0);
+    while (i < size)
+    {
+        
+        if (temp_str[i] == temp_c)
+        {
+            return((void *)&temp_str[i]);
+        }
+        i++;
+    }
+    return(NULL);
 }
