@@ -8,9 +8,9 @@ void *ft_memcpy(void *dst, const void *src, size_t n)
     temp_src = (unsigned char *)src;
     temp_dst = (unsigned char *)dst;
 
-    if (temp_src[i] == '\0' && temp_dst[i] == '\0')
-        return(temp_dst);
-    
+    if (temp_src[0] == '\0' && temp_dst[0] == '\0')
+        return (temp_dst);
+
     size_t i = 0;
     while (temp_dst[i] != '\0' && i < n)
     {
