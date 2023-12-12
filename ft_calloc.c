@@ -11,17 +11,15 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	*ft_calloc(size_t count, size_t size)
+void *ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*tmp;
-	size_t			i;
+	void *alloc;
 
-	i = 0;
-	tmp = malloc(count * size);
-	if (!tmp)
+	alloc = malloc(count * size);
+	if (alloc == NULL)
 		return (NULL);
-	while (i < count * size)
-		tmp[i++] = 0;
-	return (tmp);
+	ft_bzero(alloc, count * size);
+	return (alloc);
 }

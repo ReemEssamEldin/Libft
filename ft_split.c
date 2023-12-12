@@ -68,8 +68,8 @@ static void	*ft_free(char **strs, int count)
 
 static char	*fill_word(const char *str, int start, int end)
 {
-	char		*word;
-	int			i;
+	char	*word;
+	int		i;
 
 	i = 0;
 	word = malloc((end - start + 1) * sizeof(char));

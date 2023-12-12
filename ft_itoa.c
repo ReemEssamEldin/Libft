@@ -12,63 +12,38 @@
 
 #include "libft.h"
 
-static int	int_len(long nbr);
-static char	*pre_conv(int len);
+static size_t	get_digits(int n)
+{
+	size_t	i;
+
+	i = 1;
+	while (n /= 10)
+		i++;
+	return (i);
+}
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	int		i;
-	char	*result;
-	long	nbr;
+	char		*str_num;
+	size_t		digits;
+	long int	num;
 
-	i = 0;
-	nbr = n;
-	len = int_len(nbr);
-	result = pre_conv(len);
-	if (!result)
-		return (NULL);
-	while (nbr != 0)
+	num = n;
+	digits = get_digits(n);
+	if (n < 0)
 	{
-		result[i] = ((nbr % 10) + 48);
-		nbr = nbr / 10;
-		i--;
+		num *= -1;
+		digits++;
+	}
+	if (!(str_num = (char *)malloc(sizeof(char) * (digits + 1))))
+		return (NULL);
+	*(str_num + digits) = 0;
+	while (digits--)
+	{
+		*(str_num + digits) = num % 10 + '0';
+		num = num / 10;
 	}
 	if (n < 0)
-		result[0] = '-';
-	result[len] = 0;
-	return (result);
-}
-
-static char	*pre_conv(int len)
-{
-	char	*tmp;
-
-	tmp = malloc((len + 1) * sizeof(char));
-	if (!tmp)
-		return (NULL);
-	tmp[0] = '0';
-	return (tmp);
-}
-
-static int	int_len(long nbr)
-{
-	int	count;
-
-	count = 0;
-	if (nbr < 0)
-	{
-		count++;
-		nbr = -nbr;
-	}
-	if (nbr == 0)
-	{
-		count++;
-	}
-	while (nbr != 0)
-	{
-		nbr /= 10;
-		count++;
-	}
-	return (count);
+		*(str_num + 0) = '-';
+	return (str_num);
 }
