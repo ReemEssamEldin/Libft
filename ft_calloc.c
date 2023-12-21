@@ -13,9 +13,9 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void *ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void *alloc;
+	void	*alloc;
 
 	alloc = malloc(count * size);
 	if (alloc == NULL)

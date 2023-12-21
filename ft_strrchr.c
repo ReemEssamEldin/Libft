@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	char			*res;
 
 	i = 0;
-	temp_c = (char) c;
+	temp_c = (char)c;
 	res = NULL;
 	while (s[i] != '\0')
 	{
@@ -29,7 +29,7 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		i++;
 	}
-	if (s[i] == c)
+	if (s[i] == (char)c)
 	{
 		res = (char *)&s[i];
 	}
